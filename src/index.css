@@ -7,11 +7,25 @@
   margin: 0;
 }
 
+::-webkit-scrollbar {
+  margin-top: 4px;
+  width: 4px; /* Set the width of the scrollbar */
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #F12C00; /* Set the color of the thumb */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #d6d6d6; /* Set the color of the track */
+}
+
 body {
   font-family: 'Poppins', sans-serif;
 }
 
-.App {
+.Homepage {
   padding: 5vh 10%;
 }
 
