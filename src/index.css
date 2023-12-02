@@ -14,7 +14,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #F12C00; /* Set the color of the thumb */
+  background-color: #f12c00; /* Set the color of the thumb */
 }
 
 ::-webkit-scrollbar-track {
@@ -22,7 +22,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .Homepage {
@@ -41,5 +41,21 @@ body {
 
 .carousel-item {
   min-width: 100%;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+.skeleton {
+  animation: pulse 1.5s linear infinite !important;
 }
 

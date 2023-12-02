@@ -23,6 +23,7 @@ import womens_watches from "../assets/categories/womens-watches-min.webp";
 import womens_bags from "../assets/categories/womens-bag-min.webp";
 
 const CategoryList = () => {
+  const [loading, setLoading] = React.useState<boolean>(false);
   const [categories, setCategories] = React.useState([]);
   const images = [
     smartphones,
@@ -49,8 +50,10 @@ const CategoryList = () => {
 
   async function fetchCategories() {
     try {
+      setLoading(true);
       const data = await getAllCategories();
       setCategories(data);
+      setLoading(false);
     } catch (error) {
       console.error(`Error fetching categories \n ${error}`);
     }
@@ -63,17 +66,27 @@ const CategoryList = () => {
   return (
     <div className="px-6 py-8 bg-white rounded">
       <h1 className="text-xl">Category</h1>
-      <p className="pb-4 text-gray-500">Discover, Click, Delight: Elevate Your Shopping Experience Across Countless Categories!</p>
+      <p className="pb-4 text-gray-500">
+        Discover, Click, Delight: Elevate Your Shopping Experience Across
+        Countless Categories!
+      </p>
       <div className="w-full flex overflow-x-scroll  gap-1 text-center text-gray-500">
-        {categories?.map((category, i) => (
-          <div
-            key={i}
-            className="w-20 h-auto mb-4 p-2 flex flex-shrink-0 flex-col justify-between items-center gap-2 bg-white border border-gray-300 hover:border-orange hover:text-orange"
-          >
-            <img src={images[i]} alt={category} />
-            <p className="text-xs">{capitalizeWords(category)}</p>
-          </div>
-        ))}
+        {loading
+          ? Array.from({ length: 11 }).map((_, index) => (
+            <div key={index} className="skeleton w-20 h-28 mb-4 p-2 flex flex-shrink-0 flex-col justify-between items-center gap-2 bg-gray-200">
+                <div className="h-full w-full bg-gray-300"></div>
+                <p className="h-2 w-1/2 bg-gray-300"></p>
+              </div>
+            ))
+          : categories?.map((category, i) => (
+              <div
+                key={i}
+                className="w-20 h-auto mb-4 p-2 flex flex-shrink-0 flex-col justify-between items-center gap-2 bg-white border border-gray-300 hover:border-orange hover:text-orange"
+              >
+                <img src={images[i]} alt={category} />
+                <p className="text-xs">{capitalizeWords(category)}</p>
+              </div>
+            ))}
       </div>
     </div>
   );

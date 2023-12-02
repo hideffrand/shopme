@@ -4,6 +4,7 @@ import Carousel from "../components/Carousel";
 import Navbar from "../components/Navbar";
 import ProductList from "../components/ProductList";
 import CategoryList from '../components/CategoryList';
+import ProductCardSkeleton from '../components/ProductCardSekeleton';
 
 function Homepage() {
 
