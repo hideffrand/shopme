@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import banner1 from "../assets/banner_1.jpg";
-import banner2 from "../assets/banner_2.jpg"
-import banner3 from "../assets/banner_3.jpg"
+import banner1 from "../assets/banners/banner_1.webp";
+import banner2 from "../assets/banners/banner_2.webp"
+import banner3 from "../assets/banners/banner_3.webp"
 import Icon from "./Icon";
 
 const Carousel: React.FC = () => {
