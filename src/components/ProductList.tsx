@@ -28,7 +28,12 @@ const ProductList: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full">
+    <div className="px-6 py-8 w-full my-4 bg-white">
+      <h1 className="text-xl">All Products | Discounts Available</h1>
+      <p className="pb-4 text-gray-500">
+        Every Purchase, Every Thrill: Elevate Your Experience with All-Products
+        Delight – Discounts Await!
+      </p>
       <div className="flex overflow-x-scroll gap-4 pb-4">
         {products?.map((product, index) => (
           <div key={index} className="flex-shrink-0">

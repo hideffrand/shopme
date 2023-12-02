@@ -25,10 +25,13 @@ const ProductCard: React.FC<ProductCard> = ({
           className="w-full h-3/4 bg-cover bg-center"
           style={{ backgroundImage: `url(${thumbnail})` }}
         />
-        <p className="py-2 px-1">{title}</p>
+        <p className="p-2">{title}</p>
       </div>
-      <div className="p-1 flex justify-between">
-        <p className="text-orange">${price}</p>
+      <div className="p-2 flex justify-between">
+        <span className="flex items-end gap-1">
+          <p className="text-xs text-gray-500 line-through">${(price + price * (discount/100)).toFixed()}</p>
+          <p className="text-orange">${price}</p>
+        </span>
         <p className="text-gray-700">{stock} left</p>
       </div>
     </div>
