@@ -23,7 +23,7 @@ const Navbar = () => {
         </span>
       </div>
       <div className="px-24 py-2 container mx-auto flex items-center justify-between">
-        <div className="flex items-center text-orange font-bold text-lg">
+        <div className="flex items-center text-orange font-bold text-lg cursor-pointer" onClick={() => navigate("/")}>
           <img className="w-10" src={logo} alt="Shopme Logo" />
           Shopme
         </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import banner1 from "../assets/banners/banner_1.webp";
-import banner2 from "../assets/banners/banner_2.webp"
-import banner3 from "../assets/banners/banner_3.webp"
+import banner2 from "../assets/banners/banner_2.webp";
+import banner3 from "../assets/banners/banner_3.webp";
 import Icon from "./Icon";
 
 const Carousel: React.FC = () => {
@@ -28,49 +28,47 @@ const Carousel: React.FC = () => {
   }, []);
 
   return (
-    <div className="mt-14 mb-4 w-full flex items-center justify-center">
-      <div className="w-1/2">
-        <div className="relative overflow-hidden bg-gray-100 w-80vw h-10vh mx-auto">
-          <div className="flex h-full">
-            <div
-              className="carousel-inner flex transition-transform"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            >
-              {images.map((imageUrl, index) => (
-                <div key={index} className="carousel-item w-full h-full">
-                  <img
-                    src={imageUrl}
-                    alt={`Slide ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <button
-            className="absolute top-1/2 left-2 transform -translate-y-1/2"
-            onClick={prevSlide}
+    <div className="md:w-1/2">
+      <div className="relative overflow-hidden bg-gray-100 w-80vw h-10vh mx-auto">
+        <div className="flex h-full">
+          <div
+            className="carousel-inner flex transition-transform"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
-            <Icon name="caret-back-outline" color="white" />
-          </button>
-          <button
-            className="absolute top-1/2 right-2 transform -translate-y-1/2"
-            onClick={nextSlide}
-          >
-            <Icon name="caret-forward-outline" color="white" />
-          </button>
-          <div className="p-3 absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
-            {images.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-4 h-4 rounded-full bg-white ${
-                  currentIndex === index ? "bg-gray-800" : ""
-                }`}
-              />
+            {images.map((imageUrl, index) => (
+              <div key={index} className="carousel-item w-full h-full">
+                <img
+                  src={imageUrl}
+                  alt={`Slide ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             ))}
           </div>
+        </div>
+
+        <button
+          className="absolute top-1/2 left-2 transform -translate-y-1/2"
+          onClick={prevSlide}
+        >
+          <Icon name="caret-back-outline" color="white" />
+        </button>
+        <button
+          className="absolute top-1/2 right-2 transform -translate-y-1/2"
+          onClick={nextSlide}
+        >
+          <Icon name="caret-forward-outline" color="white" />
+        </button>
+        <div className="p-3 absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`w-4 h-4 rounded-full bg-white ${
+                currentIndex === index ? "bg-gray-800" : ""
+              }`}
+            />
+          ))}
         </div>
       </div>
     </div>

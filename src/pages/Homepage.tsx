@@ -1,18 +1,14 @@
-import * as React from 'react'
-
-import Carousel from "../components/Carousel";
+import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import ProductList from "../components/ProductList";
-import CategoryList from '../components/CategoryList';
-import ProductCardSkeleton from '../components/ProductCardSekeleton';
+import CategoryList from "../components/CategoryList";
 
 function Homepage() {
-
   return (
     <>
       <Navbar />
-      <div className="Homepage bg-gray-100">
-        <Carousel />
+      <div className="layout bg-gray-100">
+        <Header />
         <CategoryList />
         <ProductList />
       </div>

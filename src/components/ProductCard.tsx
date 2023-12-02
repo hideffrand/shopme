@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface ProductCard {
+  id: number;
   thumbnail: string;
   discount: number;
   title: string;
@@ -9,14 +11,20 @@ interface ProductCard {
 }
 
 const ProductCard: React.FC<ProductCard> = ({
+  id,
   thumbnail,
   discount,
   title,
   price,
   stock,
 }) => {
+
+  const navigate = useNavigate()
   return (
-    <div className="w-36 h-60 md:w-52 md:h-80 flex flex-col justify-between rounded border border-solid border-gray-400 relative hover:border-orange">
+    <div
+      className="bg-white w-36 h-60 md:w-52 md:h-80 flex flex-col justify-between rounded border border-solid border-gray-400 relative hover:border-orange"
+      onClick={() =>navigate(`/${id}`)}
+    > 
       <p className="rounded-br-full pl-2 pr-4 bg-orange text-white absolute">
         {discount}%
       </p>

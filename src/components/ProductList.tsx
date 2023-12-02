@@ -4,6 +4,7 @@ import ProductCard from "./ProductCard";
 import ProductCardSkeleton from "./ProductCardSekeleton";
 
 interface Product {
+  id: number;
   thumbnail: string;
   discountPercentage: number;
   title: string;
@@ -39,25 +40,24 @@ const ProductList: React.FC = () => {
           All-Products Delight – Discounts Await!
         </p>
         <div className="flex overflow-x-scroll gap-4 pb-4">
-          {loading ? (
-            Array.from({ length: 6 }).map((_, index) => (
-              <div key={index} className="flex-shrink-0">
-                <ProductCardSkeleton />
-              </div>
-            ))
-          ) : (
-            products?.map((product, index) => (
-              <div key={index} className="flex-shrink-0">
-                <ProductCard
-                  thumbnail={product.thumbnail}
-                  discount={product.discountPercentage}
-                  title={product.title}
-                  price={product.price}
-                  stock={product.stock}
-                />
-              </div>
-            ))
-          )}
+          {loading
+            ? Array.from({ length: 6 }).map((_, index) => (
+                <div key={index} className="flex-shrink-0">
+                  <ProductCardSkeleton />
+                </div>
+              ))
+            : products?.map((product, index) => (
+                <div key={index} className="flex-shrink-0">
+                  <ProductCard
+                    id={product.id}
+                    thumbnail={product.thumbnail}
+                    discount={product.discountPercentage}
+                    title={product.title}
+                    price={product.price}
+                    stock={product.stock}
+                  />
+                </div>
+              ))}
         </div>
       </div>
     </>
