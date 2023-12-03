@@ -6,7 +6,7 @@ const Navbar = () => {
   const navigate = useNavigate()
   return (
     <nav className="w-full bg-white border-b fixed z-10">
-      <div className="bg-orange text-white px-44 py-1 flex items-center justify-between text-xs">
+      <div className="hidden md:flex md:items-center md:justify-between  bg-orange text-white px-44 py-1 text-xs">
         <span className="flex gap-3">
           <a className="hover:underline" href="">All Products</a>
           <a className="hover:underline" href="">Gadgets</a>
@@ -33,7 +33,7 @@ const Navbar = () => {
         </div>
         <div className="flex items-center gap-10">
           <Icon name={"cart-outline"} color="orange"/>
-          <div className="flex gap-3">
+          <div className="hidden md:flex gap-3">
             <button onClick={() => navigate("/login")}>Login</button>
             <button onClick={() => navigate("/signup")} className="px-3 py-1 bg-orange rounded text-white hover:bg-orange-dark">Sign up</button>
           </div>

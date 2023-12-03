@@ -12,14 +12,14 @@ export default function Header() {
               backgroundImage: `url(${groceriesBanner})`,
             }}
           ></div>
-          <div className="p-4 flex items-center justify-between">
+          <div className="p-4 flex md:flex-row flex-col gap-4 md:items-center md:justify-between">
             <div>
               <h1 className="text-bold text-orange text-xl">Shopme Mart!</h1>
-              <p className="text-sm text-black">
+              <p className="text-xs md:text-sm text-black">
                 Fresh Picks, Swift Clicks: Your Grocery Shopping, Simplified!
               </p>
             </div>
-            <button className="px-4 py-2 bg-orange rounded-full text-white hover:bg-orange-dark">Coming Soon</button>
+            <button className="text-xs w-1/2 px-2 py-2 md:w-36 md:text-sm md:px-4 md:py-2 bg-orange rounded-full text-white hover:bg-orange-dark">Coming Soon</button>
           </div>
       </div>
     </div>

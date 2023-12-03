@@ -29,9 +29,13 @@ body {
 }
 
 .layout {
-  padding: 5vh 10%;
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+  padding: 2vh 5%;
+}
+
+@media (min-width: 768px) {
+  .layout {
+    padding: 5vh 10%;
+  }
 }
 
 .carousel {

@@ -24,7 +24,7 @@ import womens_bags from "../assets/categories/womens-bag-min.webp";
 import { useNavigate } from "react-router-dom";
 
 const CategoryList = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [loading, setLoading] = React.useState<boolean>(false);
   const [categories, setCategories] = React.useState([]);
   const images = [
@@ -67,10 +67,9 @@ const CategoryList = () => {
 
   return (
     <div className="px-6 py-8 bg-white rounded">
-      <h1 className="text-xl">Category</h1>
-      <p className="pb-4 text-gray-500">
-        Discover, Click, Delight: Elevate Your Shopping Experience Across
-        Countless Categories!
+      <h1 className="md:text-xl">Category</h1>
+      <p className="text-xs md:text-md pb-4 text-gray-500">
+        Elevate Your Shopping Experience Across Countless Categories!
       </p>
       <div className="w-full flex overflow-x-scroll  gap-1 text-center text-gray-500">
         {loading
@@ -87,8 +86,8 @@ const CategoryList = () => {
               <div
                 key={i}
                 className="w-20 h-auto mb-4 p-2 flex flex-shrink-0 flex-col justify-between items-center gap-2 bg-white border border-gray-300 hover:border-orange hover:text-orange"
-                onClick={() => navigate(`/category/${category}`)}  
-            >
+                onClick={() => navigate(`/category/${category}`)}
+              >
                 <img src={images[i]} alt={category} />
                 <p className="text-xs">{capitalizeWords(category)}</p>
               </div>

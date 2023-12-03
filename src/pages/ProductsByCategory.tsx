@@ -5,9 +5,11 @@ import ProductCard from "../components/ProductCard";
 import Navbar from "../components/Navbar";
 import { capitalizeWords } from "../utils/capitalizeWords";
 import CategoryList from "../components/CategoryList";
-import ProductCardSkeleton from "../components/ProductCardSekeleton";
+import ProductCardSkeleton from "../components/ProductCardSkeleton";
+import Footer from "../components/Footer";
 
 interface Product {
+  id: number;
   thumbnail: string;
   discountPercentage: number;
   title: string;
@@ -36,7 +38,7 @@ const ProductsByCategory = () => {
   return (
     <>
       <Navbar />
-      <div className="layout">
+      <div className="layout bg-gray-100">
         <div className="pt-14 min-h-screen flex flex-col gap-3">
           <CategoryList />
           <div className="px-6 py-8 bg-white">
@@ -55,6 +57,7 @@ const ProductsByCategory = () => {
                 : products?.map((product, index) => (
                     <div key={index} className="flex-shrink-0">
                       <ProductCard
+                        id={product.id}
                         thumbnail={product.thumbnail}
                         discount={product.discountPercentage}
                         title={product.title}
@@ -67,6 +70,7 @@ const ProductsByCategory = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
