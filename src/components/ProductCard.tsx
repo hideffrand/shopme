@@ -26,7 +26,7 @@ const ProductCard: React.FC<ProductCard> = ({
       onClick={() =>navigate(`/${id}`)}
     > 
       <p className="rounded-br-full pl-2 pr-4 bg-orange text-white absolute">
-        {discount}%
+        -{discount}%
       </p>
       <div className="h-full">
         <div

@@ -9,6 +9,7 @@ export default {
       colors: {
         "orange": '#ff4500',
         "orange-dark": '#F12C00',
+        "green": '#22c55e',
       },
     },
   },

@@ -85,7 +85,7 @@ const CategoryList = () => {
           : categories?.map((category, i) => (
               <div
                 key={i}
-                className="w-20 h-auto mb-4 p-2 flex flex-shrink-0 flex-col justify-between items-center gap-2 bg-white border border-gray-300 hover:border-orange hover:text-orange"
+                className="w-20 h-auto mb-4 p-2 flex flex-shrink-0 flex-col justify-between items-center gap-2 bg-white border border-gray-300 rounded hover:border-orange hover:text-orange"
                 onClick={() => navigate(`/category/${category}`)}
               >
                 <img src={images[i]} alt={category} />

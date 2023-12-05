@@ -64,6 +64,15 @@ body {
   }
 }
 
+@keyframes slideDown {
+  0% {scale: 0;}
+  100% {scale: 1;}
+}
+
 .skeleton {
   animation: pulse 1.5s linear infinite !important;
+}
+
+.alert {
+  animation: slideDown 0.1s linear !important;
 }
