@@ -73,7 +73,7 @@ const CategoryList = () => {
       </p>
       <div className="w-full flex overflow-x-scroll  gap-1 text-center text-gray-500">
         {loading
-          ? Array.from({ length: 11 }).map((_, index) => (
+          ? Array.from({ length: 16 }).map((_, index) => (
               <div
                 key={index}
                 className="skeleton w-20 h-28 mb-4 p-2 flex flex-shrink-0 flex-col justify-between items-center gap-2 bg-gray-200"
@@ -85,7 +85,7 @@ const CategoryList = () => {
           : categories?.map((category, i) => (
               <div
                 key={i}
-                className="w-20 h-auto mb-4 p-2 flex flex-shrink-0 flex-col justify-between items-center gap-2 bg-white border border-gray-300 rounded hover:border-orange hover:text-orange"
+                className="w-20 h-auto mb-4 p-2 flex flex-shrink-0 flex-col justify-between items-center gap-2 bg-white hover:border-orange hover:text-orange"
                 onClick={() => navigate(`/category/${category}`)}
               >
                 <img src={images[i]} alt={category} />

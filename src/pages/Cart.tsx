@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Icon from "../components/Icon";
 import { useNavigate } from "react-router-dom";
+import { getToken } from "../api/midtrans";
 
 interface ProductDetails {
   id: number;
@@ -73,6 +74,9 @@ const Cart = () => {
       <div className="layout bg-gray-100">
         <div className="py-4 px-4 mt-20 bg-white min-h-screen h-auto flex flex-col md:flex-row justify-between gap-4 relative">
           <div className="md:w-1/2 overflow-y-scroll h-screen">
+            <h1 className="text-xl">
+              My Cart <span className="text-sm">({items.length})</span>
+            </h1>
             {items?.map((item, i) => (
               <div
                 key={i}
@@ -149,6 +153,7 @@ const Cart = () => {
             ))}
           </div>
           <div className="pt-2 md:w-1/2 flex flex-col gap-2">
+            <h1 className="text-xl mb-1">Confirm your order</h1>
             <div className="flex justify-between">
               <p>Items</p>
               <p>Price</p>
@@ -160,7 +165,7 @@ const Cart = () => {
                     <div>
                       <p>{item.title}</p>
                       <p className="text-sm text-gray-500">{item.brand}</p>
-                      <p>{item.qty}</p>
+                      <p>x{item.qty}</p>
                     </div>
                     <p>${item.price}</p>
                   </div>
@@ -178,7 +183,10 @@ const Cart = () => {
               <p>Total: </p>
               <p className="p-2 ml-auto">${getTotalPriceAfterDiscount()}</p>
             </div>
-            <button className="ml-auto rounded px-4 py-2 text-white bg-orange hover:bg-orange-dark">
+            <button
+              className="ml-auto rounded px-4 py-2 text-white bg-orange hover:bg-orange-dark"
+              onClick={() => getToken()}
+            >
               Checkout
             </button>
           </div>

@@ -22,7 +22,7 @@ const ProductCard: React.FC<ProductCard> = ({
   const navigate = useNavigate()
   return (
     <div
-      className="bg-white w-36 h-60 md:w-52 md:h-80 flex flex-col justify-between rounded border border-solid border-gray-400 relative hover:border-orange"
+      className="bg-white w-36 h-60 md:w-52 md:h-80 flex flex-col justify-between rounded relative border border-transparent hover:border-orange"
       onClick={() =>navigate(`/${id}`)}
     > 
       <p className="rounded-br-full pl-2 pr-4 bg-orange text-white absolute">

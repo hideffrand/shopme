@@ -17,7 +17,7 @@ export default function Footer() {
             <img className="w-10" src={logo} alt="Shopme Logo" />
             Shopme
           </div>
-          <div className="flex gap-1 text-gray-500">
+          <div className="flex gap-1 text-gray-500 pl-4">
             <p>Inspired by</p>
             <a href="https://shopee.co.id" className="hover:text-orange hover:underline">Shopee</a>
             <p>and</p>

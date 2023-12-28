@@ -65,17 +65,17 @@ const ItemDetails = () => {
 
   async function handleAddToCart() {
     const item = {
-      "id": id,
-      "title": details.title,
-      "thumbnail": details.thumbnail,
-      "price": details.price,
-      "discountPercentage": details.discountPercentage,
-      "stock": details.stock,
-      "brand": details.brand,
-      "qty": details.qty,
-    }
-    addToCart(item)
-    showAlert()
+      id: id,
+      title: details.title,
+      thumbnail: details.thumbnail,
+      price: details.price,
+      discountPercentage: details.discountPercentage,
+      stock: details.stock,
+      brand: details.brand,
+      qty: details.qty,
+    };
+    addToCart(item);
+    showAlert();
   }
 
   React.useEffect(() => {
@@ -126,14 +126,17 @@ const ItemDetails = () => {
         ) : (
           <div className="p-2 mt-20 md:px-6 md:py-8 bg-white flex flex-col">
             <div className="md:flex md:justify-between">
-              <div className="w-full md:w-1/2 flex flex-col items-center justify-between border border-gray-300">
+              <div className="w-full md:w-1/2 flex flex-col items-center justify-between">
                 <div className="w-1/2 p-4">
-                  <div className="w-full">
-                    <img
+                  <div
+                    className="w-80 bg-cover bg-center h-80"
+                    style={{ backgroundImage: `url(${displayImage})` }}
+                  >
+                    {/* <img
                       className="w-full"
                       src={displayImage}
                       alt={details.title}
-                    />
+                    /> */}
                   </div>
                 </div>
                 <div className="w-full flex bg-gray-100 md:p-4 md:justify-around">

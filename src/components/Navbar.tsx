@@ -3,47 +3,36 @@ import { getCart } from "../api/cart";
 import logo from "../assets/shopme_logo.webp";
 import Icon from "./Icon";
 import { useNavigate } from "react-router-dom";
+import { searchProducts } from "../api/products";
 
 const Navbar = () => {
-  const [items, setItems] = React.useState([]);
+  const [query, setQuery] = React.useState<string>("");
+  const [items, setItems] = React.useState<any[]>([]);
+  const [qResult, setQResult] = React.useState<any[]>([]);
+
   const navigate = useNavigate();
 
+  // React.useEffect(() => {
+  //   setItems(getCart());
+  // }, [items]);
+
   React.useEffect(() => {
-    setItems(getCart());
-  }, [items]);
-  
+    console.log(query);
+  }, [query]);
+
+  async function handleSubmitQ(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    try {
+      const res = await searchProducts(query);
+      setQResult(res);
+      console.log(res);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <nav className="w-full bg-white border-b fixed z-10">
-      <div className="hidden md:flex md:items-center md:justify-between bg-orange text-white px-44 py-1 text-xs">
-        <span className="flex gap-3">
-          <a className="hover:underline" href="">
-            All Products
-          </a>
-          <a className="hover:underline" href="">
-            Gadgets
-          </a>
-          <a className="hover:underline" href="">
-            Groceries
-          </a>
-          <a className="hover:underline" href="">
-            Fashion
-          </a>
-          <a className="hover:underline" href="">
-            Automotive
-          </a>
-          <a className="hover:underline" href="">
-            Furnitures
-          </a>
-          <a className="hover:underline" href="">
-            Home Decorations
-          </a>
-        </span>
-        <span className="flex gap-3">
-          <a href="">Helps</a>
-          <a href="">About</a>
-          <a href="">Information Center</a>
-        </span>
-      </div>
       <div className="px-6 md:px-24 py-2 container mx-auto flex items-center justify-between">
         <div
           className="flex items-center text-orange font-bold text-lg cursor-pointer"
@@ -52,13 +41,30 @@ const Navbar = () => {
           <img className="w-10" src={logo} alt="Shopme Logo" />
           Shopme
         </div>
-        <div className="text-sm hidden w-1/2 md:flex md:justify-between md:gap-2 border border-gray-200 px-4 py-2 rounded">
-          <input
-            className="pr-2 w-full focus:outline-none placeholder:text-gray-400"
-            type="text"
-            placeholder="Find your favorite items - try 'shoes,' 'smartphones,' or 'clothing'..."
-          />
+        <div className="text-sm hidden w-1/2 md:flex md:justify-between md:gap-2 border border-gray-200 px-4 py-2 rounded relative">
+          <form className="w-full flex items-center" onSubmit={handleSubmitQ}>
+            <input
+              className="pr-2 w-full focus:outline-none placeholder:text-gray-400"
+              type="text"
+              placeholder="Find your favorite items - try 'shoes,' 'smartphones,' or 'clothing'..."
+              onChange={(e) => setQuery(e.target.value)}
+            />
+          </form>
           <Icon name="search-outline" color="orange" size="2xl" />
+          <div className="absolute top-full bg-white w-full left-0 rounded-sm shadow-md">
+            {qResult.map((item, i) => (
+              <p
+                key={i}
+                onClick={() => {
+                  navigate(`/${item.id}`);
+                  setQResult([]);
+                }}
+                className="mx-4 py-4 hover:text-orange cursor-pointer border-b"
+              >
+                {item.title}
+              </p>
+            ))}
+          </div>
         </div>
         <div className="flex items-center gap-10">
           <div className="relative" onClick={() => navigate("/cart")}>
